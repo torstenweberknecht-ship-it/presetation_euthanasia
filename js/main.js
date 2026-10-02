@@ -6,38 +6,50 @@
   const hint = document.getElementById("hint");
   const board = document.getElementById("board");
   const title = document.getElementById("titel");
-  const slides = Array.from(board.querySelectorAll(".slide"));
 
-  const PAD = { title: 0.96, board: 0.93, slide: 0.96, detail: 0.92 };
+  const slides = Array.from(board.querySelectorAll("article.slide[data-nr]"));
+  const subs = Array.from(board.querySelectorAll("article.slide--sub"));
+  const subparts = Array.from(board.querySelectorAll(".subpart"));
+
+  const PAD = { title: 0.96, board: 0.93, slide: 0.96, sub: 1 };
   const LOCK_MS = 380;
 
   /* ---------------------------------------------------------- Abfolge
-     Titel → Übersicht → [Folie 1 → Unterteilung 1 →] Übersicht → Folie 2 → …
-     Folien 1 und 4 haben eine Unterteilung (3 Klicks), die übrigen (2 Klicks). */
+     Titel → Übersicht
+     Einzelfolie (2, 3, 5, 6):      Folie → Übersicht
+     Splittfolie (1, 4):            Folie → Unterfolie 1 → Folie → Unterfolie 2 → Folie → Übersicht
+     Alle Ansichten sind Vollbildseiten im gleichen 16:9-Format. */
   const seq = [
     { el: title, kind: "title" },
     { el: board, kind: "board" },
   ];
 
   slides.forEach((slide) => {
-    seq.push({
-      el: slide,
-      kind: "slide",
-      split: slide.classList.contains("slide--split"),
-      nr: slide.dataset.nr,
-      title: slide.dataset.title,
-    });
-
-    if (slide.classList.contains("slide--split")) {
+    const own = subs.filter((s) => s.dataset.parent === slide.dataset.nr);
+    const mother = () =>
       seq.push({
-        el: slide.querySelector(".subpart"),
-        kind: "detail",
-        owner: slide,
+        el: slide,
+        kind: "slide",
+        split: own.length > 0,
         nr: slide.dataset.nr,
         title: slide.dataset.title,
       });
-    }
 
+    mother();
+
+    own.forEach((sub, i) => {
+      if (i > 0) mother();
+      seq.push({
+        el: sub,
+        kind: "sub",
+        parent: slide,
+        nr: slide.dataset.nr,
+        label: sub.dataset.label,
+        title: sub.dataset.title,
+      });
+    });
+
+    if (own.length) mother();
     seq.push({ el: board, kind: "board" });
   });
 
@@ -95,11 +107,11 @@
           ? `Klicken, um Folie ${next.nr} „${next.title}“ zu öffnen`
           : "Klicken für den Neustart";
       case "slide":
-        return v.split
-          ? `Folie ${v.nr} · Klicken für die Unterteilung`
+        return next.kind === "sub"
+          ? `Folie ${v.nr} · Klicken für Unterfolie ${next.label}`
           : `Folie ${v.nr} · Klicken für die Übersicht`;
-      case "detail":
-        return `Folie ${v.nr} · Unterteilung · Klicken für die Übersicht`;
+      case "sub":
+        return `Unterfolie ${v.label} · Klicken für Folie ${v.nr}`;
       default:
         return "";
     }
@@ -109,15 +121,22 @@
   function render(instant) {
     const v = seq[idx];
     const next = seq[(idx + 1) % seq.length];
+    const activeMother = v.kind === "slide" ? v.el : v.kind === "sub" ? v.parent : null;
 
     slides.forEach((slide) => {
-      const revealed =
-        (v.kind === "slide" && v.el === slide) ||
-        (v.kind === "detail" && v.owner === slide);
-      slide.classList.toggle("is-revealed", revealed);
-
+      slide.classList.toggle("is-revealed", slide === activeMother);
       const isNext = v.kind === "board" && next.kind === "slide" && next.el === slide;
       slide.classList.toggle("is-next", isNext);
+    });
+
+    subs.forEach((sub) => {
+      sub.classList.toggle("is-active", v.kind === "sub" && v.el === sub);
+    });
+
+    const nextPart =
+      v.kind === "slide" && next.kind === "sub" && next.parent === v.el ? next : null;
+    subparts.forEach((part) => {
+      part.classList.toggle("is-next", !!nextPart && part.dataset.sub === nextPart.label);
     });
 
     hint.textContent = hintText(v, next);
