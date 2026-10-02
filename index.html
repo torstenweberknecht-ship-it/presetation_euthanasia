@@ -3,98 +3,179 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Präsentation zum Thema Sterbehilfe – Platzhalterversion">
+  <meta name="description" content="Präsentation zum Thema Sterbehilfe – interaktive Folienansicht (Platzhalterversion)">
   <title>Vortrag: Sterbehilfe</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <nav class="nav">
-      <a href="#einleitung" class="nav-link">Einleitung</a>
-      <a href="#recht" class="nav-link">Rechtslage</a>
-      <a href="#argumente" class="nav-link">Argumente</a>
-      <a href="#fazit" class="nav-link">Fazit</a>
-      <a href="#quellen" class="nav-link">Quellen</a>
-    </nav>
-  </header>
+  <noscript>
+    <p class="noscript">Diese Präsentation benötigt JavaScript – bitte im Browser aktivieren.</p>
+  </noscript>
 
-  <main>
-    <section class="hero" id="start">
-      <p class="hero-kicker">Präsentation</p>
-      <h1>Sterbehilfe</h1>
-      <p class="hero-subtitle">Recht, Ethik und Gesellschaft im Wandel</p>
-      <p class="placeholder-badge">Platzhalterversion – Inhalte folgen</p>
-    </section>
+  <div id="stage">
+    <div id="world">
 
-    <section class="section" id="einleitung">
-      <h2>1. Einleitung</h2>
-      <p class="placeholder-text">
-        [Platzhalter] Hier steht der Einleitungstext des Vortrags.
-        Er beschreibt die Relevanz des Themas, den Aufbau der Präsentation
-        und die zentrale Fragestellung.
-      </p>
-      <p class="placeholder-text">
-        [Platzhalter] Beispiel: Wie gehen Gesellschaft, Recht und Medizin
-        mit dem Wunsch nach selbstbestimmtem Lebensende um?
-      </p>
-    </section>
+      <!-- ================= 1. Titelfolie ================= -->
+      <section class="slide slide--title" id="titel">
+        <p class="kicker">Präsentation</p>
+        <h1>Sterbehilfe</h1>
+        <p class="subtitle">Recht, Ethik und Gesellschaft im Wandel</p>
+        <span class="rule"></span>
+        <p class="title-meta">[Platzhalter] Name · Klassenstufe · Datum</p>
+        <p class="placeholder-badge">Platzhalterversion – Inhalte folgen</p>
+      </section>
 
-    <section class="section" id="recht">
-      <h2>2. Rechtliche Lage</h2>
-      <p class="placeholder-text">
-        [Platzhalter] Paragraph zum aktuellen Rechtsstand in Deutschland
-        (z.&nbsp;B. §§ 216, 218 StGB, Rechtsprechung des Bundesverfassungsgerichts).
-      </p>
-      <ul class="placeholder-list">
-        <li>[Platzhalter] Historische Entwicklung der Regelungen</li>
-        <li>[Platzhalter] Aktuelle Gesetzesinitiativen und Diskussionen</li>
-        <li>[Platzhalter] Internationale Vergleichsbeispiele</li>
-      </ul>
-    </section>
+      <!-- ============ 2. Inhaltsangabe / Übersicht ============ -->
+      <div class="board" id="board">
+        <header class="board-head">
+          <p class="kicker">Übersicht</p>
+          <h2>Inhalt</h2>
+          <p class="board-sub">[Platzhalter] Aufbau des Vortrags – 6 Folien</p>
+        </header>
 
-    <section class="section" id="argumente">
-      <h2>3. Argumente</h2>
-      <div class="columns">
-        <div class="column column-pro">
-          <h3>Argumente dafür</h3>
-          <ul class="placeholder-list">
-            <li>[Platzhalter] Selbstbestimmung und Menschenwürde</li>
-            <li>[Platzhalter] Leidvermeidung bei unheilbarer Erkrankung</li>
-            <li>[Platzhalter] [Weiteres Argument ergänzen]</li>
-          </ul>
-        </div>
-        <div class="column column-con">
-          <h3>Argumente dagegen</h3>
-          <ul class="placeholder-list">
-            <li>[Platzhalter] Schutz des Lebens</li>
-            <li>[Platzhalter] Sorge vor Missbrauch und Druck</li>
-            <li>[Platzhalter] [Weiteres Argument ergänzen]</li>
-          </ul>
-        </div>
+        <!-- Folie 1 (mit Unterteilung) -->
+        <article class="slide slide--split" data-nr="1" data-title="Einleitung"
+                 style="--x:60px; --y:280px;">
+          <header class="slide-head">
+            <span class="slide-num">01</span>
+            <h2 class="slide-title">Einleitung</h2>
+          </header>
+          <div class="slide-body">
+            <p class="ph">[Platzhalter] Hier steht der Einleitungstext des Vortrags: Relevanz des
+              Themas, Aufbau der Präsentation und die zentrale Fragestellung.</p>
+            <ul class="ph-list">
+              <li>[Platzhalter] Thema und Relevanz</li>
+              <li>[Platzhalter] Aufbau des Vortrags</li>
+            </ul>
+          </div>
+          <div class="detail">
+            <div class="subpart">
+              <h3>1.1 Ausgangslage</h3>
+              <p>[Platzhalter] Beispiel: Wie gehen Gesellschaft, Recht und Medizin mit dem Wunsch
+                nach selbstbestimmtem Lebensende um?</p>
+            </div>
+            <div class="subpart">
+              <h3>1.2 Leitfrage</h3>
+              <p>[Platzhalter] Welche Spannung besteht zwischen Selbstbestimmung und Schutz des
+                Lebens – und wie lässt sie sich auflösen?</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Folie 2 -->
+        <article class="slide" data-nr="2" data-title="Rechtliche Lage"
+                 style="--x:1780px; --y:280px;">
+          <header class="slide-head">
+            <span class="slide-num">02</span>
+            <h2 class="slide-title">Rechtliche Lage</h2>
+          </header>
+          <div class="slide-body">
+            <p class="ph">[Platzhalter] Paragraph zum aktuellen Rechtsstand in Deutschland
+              (z.&nbsp;B. §§ 216, 218 StGB, Rechtsprechung des Bundesverfassungsgerichts).</p>
+            <ul class="ph-list">
+              <li>[Platzhalter] Historische Entwicklung der Regelungen</li>
+              <li>[Platzhalter] Aktuelle Gesetzesinitiativen und Diskussionen</li>
+              <li>[Platzhalter] Internationale Vergleichsbeispiele</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Folie 3 -->
+        <article class="slide" data-nr="3" data-title="Argumente"
+                 style="--x:3500px; --y:280px;">
+          <header class="slide-head">
+            <span class="slide-num">03</span>
+            <h2 class="slide-title">Argumente</h2>
+          </header>
+          <div class="slide-body">
+            <div class="columns">
+              <div class="column column-pro">
+                <h3>Argumente dafür</h3>
+                <ul>
+                  <li>[Platzhalter] Selbstbestimmung und Menschenwürde</li>
+                  <li>[Platzhalter] Leidvermeidung bei unheilbarer Erkrankung</li>
+                  <li>[Platzhalter] [Weiteres Argument ergänzen]</li>
+                </ul>
+              </div>
+              <div class="column column-con">
+                <h3>Argumente dagegen</h3>
+                <ul>
+                  <li>[Platzhalter] Schutz des Lebens</li>
+                  <li>[Platzhalter] Sorge vor Missbrauch und Druck</li>
+                  <li>[Platzhalter] [Weiteres Argument ergänzen]</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Folie 4 (mit Unterteilung) -->
+        <article class="slide slide--split" data-nr="4" data-title="Internationale Beispiele"
+                 style="--x:60px; --y:1300px;">
+          <header class="slide-head">
+            <span class="slide-num">04</span>
+            <h2 class="slide-title">Internationale Beispiele</h2>
+          </header>
+          <div class="slide-body">
+            <p class="ph">[Platzhalter] Kurzer Überblick über Länder mit unterschiedlichen
+              Regelungen und was sich daraus für die Diskussion in Deutschland ableiten lässt.</p>
+            <ul class="ph-list">
+              <li>[Platzhalter] Unterschiedliche Rechtsmodelle</li>
+              <li>[Platzhalter] Praxis und Erfahrungen</li>
+            </ul>
+          </div>
+          <div class="detail">
+            <div class="subpart">
+              <h3>4.1 Länder mit Legalisierung</h3>
+              <p>[Platzhalter] Beispiel: Niederlande, Belgien, Kanada – Voraussetzungen und
+                Verfahren.</p>
+            </div>
+            <div class="subpart">
+              <h3>4.2 Modelle &amp; Praxis</h3>
+              <p>[Platzhalter] Beispiel: Schweiz, Oregon – Berichte aus der Umsetzung.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Folie 5 -->
+        <article class="slide" data-nr="5" data-title="Fazit"
+                 style="--x:1780px; --y:1300px;">
+          <header class="slide-head">
+            <span class="slide-num">05</span>
+            <h2 class="slide-title">Fazit</h2>
+          </header>
+          <div class="slide-body">
+            <p class="ph">[Platzhalter] Zusammenfassung der wichtigsten Erkenntnisse und die
+              persönliche Position zum Thema.</p>
+            <ul class="ph-list">
+              <li>[Platzhalter] Kernaussagen des Vortrags</li>
+              <li>[Platzhalter] Eigene Einschätzung</li>
+              <li>[Platzhalter] Ausblick / offene Fragen</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Folie 6 -->
+        <article class="slide" data-nr="6" data-title="Quellen"
+                 style="--x:3500px; --y:1300px;">
+          <header class="slide-head">
+            <span class="slide-num">06</span>
+            <h2 class="slide-title">Quellen</h2>
+          </header>
+          <div class="slide-body">
+            <ol class="sources">
+              <li>[Platzhalter] Quelle 1 (Autor, Titel, Jahr)</li>
+              <li>[Platzhalter] Quelle 2 (Autor, Titel, Jahr)</li>
+              <li>[Platzhalter] Quelle 3 (Autor, Titel, Jahr)</li>
+            </ol>
+          </div>
+        </article>
       </div>
-    </section>
+    </div>
 
-    <section class="section" id="fazit">
-      <h2>4. Fazit</h2>
-      <p class="placeholder-text">
-        [Platzhalter] Hier die Zusammenfassung der wichtigsten Erkenntnisse
-        und die persönliche Position zum Thema.
-      </p>
-    </section>
-
-    <section class="section" id="quellen">
-      <h2>5. Quellen</h2>
-      <ol class="placeholder-list">
-        <li>[Platzhalter] Quelle 1 (Autor, Titel, Jahr)</li>
-        <li>[Platzhalter] Quelle 2 (Autor, Titel, Jahr)</li>
-        <li>[Platzhalter] Quelle 3 (Autor, Titel, Jahr)</li>
-      </ol>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <p>Vortrag: Sterbehilfe – Platzhalterversion</p>
-  </footer>
+    <p class="hint" id="hint"></p>
+    <p class="keys">→ / Leertaste weiter &nbsp;·&nbsp; ← zurück &nbsp;·&nbsp; F Vollbild</p>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
