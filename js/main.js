@@ -125,6 +125,7 @@
 
     slides.forEach((slide) => {
       slide.classList.toggle("is-revealed", slide === activeMother);
+      slide.classList.toggle("is-covered", v.kind === "sub" && v.parent === slide);
       const isNext = v.kind === "board" && next.kind === "slide" && next.el === slide;
       slide.classList.toggle("is-next", isNext);
     });

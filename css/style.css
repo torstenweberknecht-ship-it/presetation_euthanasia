@@ -343,14 +343,58 @@ body.is-ready #world {
   animation: pulse 1.6s ease-in-out infinite;
 }
 
-/* Unterfolien: Vollbildseiten, die genau auf ihrer Mutterfolie liegen */
+/* Unterfolien: eigene Vollbildseiten im 16:9-Format, so groß wie ihre
+   Karte auf der Mutterfolie – die Kamera zoomt von dort ins Vollbild. */
 .slide--sub {
+  width: 516px;
+  height: 290px;
+  padding: 22px 26px;
+  border-radius: 8px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
   opacity: 0;
-  transition: opacity 320ms ease;
+  transition: opacity 260ms ease;
 }
 
 .slide--sub.is-active {
   opacity: 1;
+}
+
+.slide--sub .slide-head {
+  gap: 14px;
+  padding-bottom: 8px;
+  border-bottom-width: 2px;
+  margin-bottom: 14px;
+}
+
+.slide--sub .slide-num {
+  font-size: 15px;
+}
+
+.slide--sub .slide-title {
+  font-size: 27px;
+}
+
+.slide--sub .slide-body {
+  gap: 10px;
+}
+
+.slide--sub .ph {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.slide--sub .ph-list {
+  gap: 6px;
+}
+
+.slide--sub .ph-list li {
+  padding-left: 20px;
+  font-size: 14px;
+}
+
+.slide--sub .ph-list li::before {
+  width: 10px;
+  height: 4px;
 }
 
 @keyframes pulse {
@@ -386,6 +430,19 @@ body.is-ready #world {
   margin-top: 26px;
   opacity: 1;
   transform: none;
+}
+
+/* Solange die Kamera in einer Unterfolie steht, blendet die Mutterfolie
+   seinen Inhalt aus – übrig bleibt die Papierfläche der Folie. */
+.slide-head,
+.slide-body {
+  transition: opacity 320ms ease;
+}
+
+.slide.is-covered .slide-head,
+.slide.is-covered .slide-body,
+.slide.is-covered .detail {
+  opacity: 0;
 }
 
 .subpart {
